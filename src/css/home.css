@@ -33,3 +33,9 @@
 #home-container {
   width: 640px;
 }
+
+@media (max-width: 500px) {
+  #home {
+    padding: 20px 0;
+  }
+}

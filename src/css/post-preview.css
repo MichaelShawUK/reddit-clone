@@ -1,0 +1,8 @@
+.post-preview {
+  margin-top: 8px;
+}
+
+.post-preview img {
+  max-height: 512px;
+  width: 100%;
+}

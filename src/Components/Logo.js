@@ -5,12 +5,7 @@ const Logo = () => {
   return (
     <div id="logo-container">
       <img id="reddit-icon" src={icon} alt=""></img>
-      <svg
-        class="_1bWuGs_1sq4Pqy099x_yy-"
-        viewBox="0 0 57 18"
-        xmlns="http://www.w3.org/2000/svg"
-        id="icon-svg"
-      >
+      <svg viewBox="0 0 57 18" xmlns="http://www.w3.org/2000/svg" id="icon-svg">
         <g fill="#1c1c1c">
           <path d="M54.63,16.52V7.68h1a1,1,0,0,0,1.09-1V6.65a1,1,0,0,0-.93-1.12H54.63V3.88a1.23,1.23,0,0,0-1.12-1.23,1.2,1.2,0,0,0-1.27,1.11V5.55h-1a1,1,0,0,0-1.09,1v.07a1,1,0,0,0,.93,1.12h1.13v8.81a1.19,1.19,0,0,0,1.19,1.19h0a1.19,1.19,0,0,0,1.25-1.12A.17.17,0,0,0,54.63,16.52Z"></path>
           <circle fill="#FF4500" cx="47.26" cy="3.44" r="2.12"></circle>

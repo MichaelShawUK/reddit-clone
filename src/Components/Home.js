@@ -1,5 +1,6 @@
 import "../css/home.css";
 import Sorter from "./Sorter";
+import Card from "./Card";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
           Popular posts
         </div>
         <Sorter />
+        <Card />
       </div>
     </div>
   );
