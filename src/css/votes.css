@@ -39,3 +39,9 @@
 .downvote:hover::before {
   content: url("../assets/img/downvote-hover.png");
 }
+
+@media (max-width: 500px) {
+  .votes {
+    display: none;
+  }
+}

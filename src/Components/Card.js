@@ -2,6 +2,7 @@ import "../css/card.css";
 import Votes from "./Votes";
 import CardHeader from "./CardHeader";
 import PostPreview from "./PostPreview";
+import CardFooter from "./CardFooter";
 
 const Card = () => {
   return (
@@ -9,13 +10,10 @@ const Card = () => {
       <Votes />
       <CardHeader />
       <div className="post-title">
-        I requested 8 bananas in my weekly grocery pickup order…. They gave me 8
-        BUNCHES, and managed to only charge me $0.68 - the price of one single
-        banana
+        What is something you stopped buying due to price increases?
       </div>
       <PostPreview />
-      <div>post preview text/image</div>
-      <div>card footer - comment count</div>
+      <CardFooter />
     </div>
   );
 };
