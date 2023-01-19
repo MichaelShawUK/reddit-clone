@@ -9,3 +9,11 @@
   box-sizing: border-box;
   font-family: "Noto-Sans", Arial, sans-serif;
 }
+
+#error-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 20px;
+}
