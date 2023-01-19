@@ -1,0 +1,17 @@
+#icon-svg {
+  height: 18px;
+  margin-right: 20px;
+}
+
+#reddit-icon {
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+#logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Put 20px margin left and right on header */
