@@ -1,9 +1,9 @@
-import Logo from "./Components/Logo";
+import Header from "./Components/Header";
 
 const App = () => {
   return (
     <div>
-      <Logo />
+      <Header />
     </div>
   );
 };

@@ -14,4 +14,8 @@
   align-items: center;
 }
 
-/* Put 20px margin left and right on header */
+@media (max-width: 750px) {
+  #icon-svg {
+    display: none;
+  }
+}
