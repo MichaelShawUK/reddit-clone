@@ -1,5 +1,6 @@
 import img1 from "./imgs/img1.jpg";
 import img2 from "./imgs/img2.webp";
+import img3 from "./imgs/img3.webp";
 import sub1 from "../assets/img/sub1.png";
 import sub2 from "../assets/img/sub2.png";
 import sub3 from "../assets/img/sub3.png";
@@ -37,7 +38,7 @@ const posts = [
     title: "A Picture from the James Webb Space Telescope",
     img: img1,
     text: "",
-    upvotes: 386,
+    upvotes: 4186,
     downvotes: 62,
     comments: 59,
   },
@@ -61,7 +62,7 @@ const posts = [
     
     Never read any other Stephen King's books, but after reading The Dark Tower I am anxious to read many of his other books. Might read Pet Sematary or The Stand next!`,
     upvotes: 4097,
-    downvotes: 562,
+    downvotes: 556,
     comments: 438,
   },
   {
@@ -85,6 +86,17 @@ const posts = [
     upvotes: 867,
     downvotes: 245,
     comments: 196,
+  },
+  {
+    user: "llzzies",
+    time: 1658321622000,
+    subreddit: subreddits.itap,
+    title: "ITAP of a baby turtle at sunset",
+    img: img3,
+    text: "",
+    upvotes: 512,
+    downvotes: 43,
+    comments: 21,
   },
 ];
 

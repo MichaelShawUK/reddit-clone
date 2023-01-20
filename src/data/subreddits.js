@@ -2,6 +2,7 @@ import rpics from "./icons/rpics.png";
 import rbooks from "./icons/rbooks.png";
 import rart from "./icons/rart.png";
 import raskreddit from "./icons/raskreddit.png";
+import ritap from "./icons/ritap.png";
 
 const subreddits = {
   pics: {
@@ -19,6 +20,10 @@ const subreddits = {
   askreddit: {
     name: "AskReddit",
     icon: raskreddit,
+  },
+  itap: {
+    name: "itookapicture",
+    icon: ritap,
   },
 };
 
