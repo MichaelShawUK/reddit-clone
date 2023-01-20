@@ -7,13 +7,11 @@ import CardFooter from "./CardFooter";
 const Card = ({ post }) => {
   return (
     <div className="card">
-      <Votes />
+      <Votes post={post} />
       <CardHeader post={post} />
-      <div className="post-title">
-        What is something you stopped buying due to price increases?
-      </div>
-      <PostPreview />
-      <CardFooter />
+      <div className="post-title">{post.title}</div>
+      <PostPreview post={post} />
+      <CardFooter post={post} />
     </div>
   );
 };

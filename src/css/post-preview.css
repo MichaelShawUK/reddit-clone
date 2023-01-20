@@ -17,6 +17,7 @@
   line-height: 21px;
   font-family: "Noto-Sans";
   position: relative;
+  white-space: pre-line;
 }
 
 .text-preview::after {
