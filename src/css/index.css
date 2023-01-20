@@ -35,3 +35,8 @@
 .med {
   font-weight: 500;
 }
+
+button {
+  font-family: "Noto-Sans", Arial, sans-serif;
+  font-weight: bold;
+}
