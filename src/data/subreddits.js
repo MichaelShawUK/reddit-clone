@@ -1,8 +1,8 @@
-import rpics from "./icons/rpics.png";
-import rbooks from "./icons/rbooks.png";
-import rart from "./icons/rart.png";
-import raskreddit from "./icons/raskreddit.png";
-import ritap from "./icons/ritap.png";
+import rpics from "./icons/subreddits/rpics.png";
+import rbooks from "./icons/subreddits/rbooks.png";
+import rart from "./icons/subreddits/rart.png";
+import raskreddit from "./icons/subreddits/raskreddit.png";
+import ritap from "./icons/subreddits/ritap.png";
 
 const subreddits = {
   pics: {

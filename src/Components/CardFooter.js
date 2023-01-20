@@ -3,7 +3,6 @@ import Votes from "./Votes";
 import commentIcon from "../assets/img/commentIcon.png";
 
 const CardFooter = ({ post }) => {
-  // console.log(post);
   return (
     <div className="card-footer">
       <Votes post={post} />
