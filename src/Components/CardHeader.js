@@ -1,4 +1,5 @@
 import "../css/card-header.css";
+import timeElapsed from "../utils/timeElapsed";
 import sub1 from "../assets/img/sub1.png";
 import sub2 from "../assets/img/sub2.png";
 import sub3 from "../assets/img/sub3.png";
@@ -28,12 +29,14 @@ const subIcons = [
 ];
 const icon = subIcons[Math.floor(Math.random() * subIcons.length)];
 
-const CardHeader = () => {
+const CardHeader = ({ post }) => {
   return (
     <div className="card-header">
       <img className="subreddit-icon" src={icon} alt=""></img>
-      <div className="subreddit-name">r/subredditName</div>
-      <div className="post-info">Posted by ---user--- ---n time--- ago</div>
+      <div className="subreddit-name">{`r/${post.subreddit}`}</div>
+      <div className="post-info">{`Posted by ${post.user} ${timeElapsed(
+        post.time
+      )}`}</div>
     </div>
   );
 };

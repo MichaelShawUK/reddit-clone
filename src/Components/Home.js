@@ -1,6 +1,9 @@
 import "../css/home.css";
 import Sorter from "./Sorter";
 import Card from "./Card";
+import posts from "../data/posts";
+
+const post = posts[0];
 
 const Home = () => {
   return (
@@ -10,7 +13,7 @@ const Home = () => {
           Popular posts
         </div>
         <Sorter />
-        <Card />
+        <Card post={post} />
       </div>
     </div>
   );
