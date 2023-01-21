@@ -12,6 +12,7 @@ const Home = () => {
     console.log("reading posts");
     const data = readData("posts");
     data.then((res) => {
+      // Sorts posts by highest vote count
       res.sort((a, b) => {
         const aVotes = a.upvotes - a.downvotes;
         const bVotes = b.upvotes - b.downvotes;
