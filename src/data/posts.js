@@ -14,7 +14,7 @@ import sub10 from "../assets/img/sub10.png";
 import sub11 from "../assets/img/sub11.png";
 import sub12 from "../assets/img/sub12.png";
 import subreddits from "./subreddits";
-import { v4 as uuidv4 } from "uuid";
+import { addPost } from "../firebaseInit";
 
 const subIcons = [
   sub1,
@@ -33,7 +33,6 @@ const subIcons = [
 
 const posts = [
   {
-    id: uuidv4(),
     user: "King-Camyen",
     time: 1674210418000,
     subreddit: subreddits.pics,
@@ -46,7 +45,6 @@ const posts = [
     commentIds: [],
   },
   {
-    id: uuidv4(),
     user: "Kssio_Aug",
     time: 1673783476000,
     subreddit: subreddits.books,
@@ -71,7 +69,6 @@ const posts = [
     commentIds: [],
   },
   {
-    id: uuidv4(),
     user: "miguelllobo",
     time: 1650023476000,
     subreddit: subreddits.art,
@@ -84,7 +81,6 @@ const posts = [
     commentIds: [],
   },
   {
-    id: uuidv4(),
     user: "TheSensibleTurtle",
     time: 1672575943000,
     subreddit: subreddits.askreddit,
@@ -97,7 +93,6 @@ const posts = [
     commentIds: [],
   },
   {
-    id: uuidv4(),
     user: "llzzies",
     time: 1658321622000,
     subreddit: subreddits.itap,
@@ -110,5 +105,7 @@ const posts = [
     commentIds: [],
   },
 ];
+
+// posts.forEach((post) => addPost(post));
 
 export default posts;
