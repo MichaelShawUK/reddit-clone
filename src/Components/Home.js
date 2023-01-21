@@ -11,8 +11,8 @@ const Home = () => {
           Popular posts
         </div>
         <Sorter />
-        {posts.map((post, index) => {
-          return <Card key={index} post={post} />;
+        {posts.map((post) => {
+          return <Card key={post.id} post={post} />;
         })}
       </div>
     </div>

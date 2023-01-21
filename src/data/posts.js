@@ -14,6 +14,7 @@ import sub10 from "../assets/img/sub10.png";
 import sub11 from "../assets/img/sub11.png";
 import sub12 from "../assets/img/sub12.png";
 import subreddits from "./subreddits";
+import { v4 as uuidv4 } from "uuid";
 
 const subIcons = [
   sub1,
@@ -32,6 +33,7 @@ const subIcons = [
 
 const posts = [
   {
+    id: uuidv4(),
     user: "King-Camyen",
     time: 1674210418000,
     subreddit: subreddits.pics,
@@ -41,8 +43,10 @@ const posts = [
     upvotes: 4186,
     downvotes: 62,
     comments: 59,
+    commentIds: [],
   },
   {
+    id: uuidv4(),
     user: "Kssio_Aug",
     time: 1673783476000,
     subreddit: subreddits.books,
@@ -64,8 +68,10 @@ const posts = [
     upvotes: 4097,
     downvotes: 556,
     comments: 438,
+    commentIds: [],
   },
   {
+    id: uuidv4(),
     user: "miguelllobo",
     time: 1650023476000,
     subreddit: subreddits.art,
@@ -75,8 +81,10 @@ const posts = [
     upvotes: 1542,
     downvotes: 103,
     comments: 72,
+    commentIds: [],
   },
   {
+    id: uuidv4(),
     user: "TheSensibleTurtle",
     time: 1672575943000,
     subreddit: subreddits.askreddit,
@@ -86,8 +94,10 @@ const posts = [
     upvotes: 867,
     downvotes: 245,
     comments: 196,
+    commentIds: [],
   },
   {
+    id: uuidv4(),
     user: "llzzies",
     time: 1658321622000,
     subreddit: subreddits.itap,
@@ -97,6 +107,7 @@ const posts = [
     upvotes: 512,
     downvotes: 43,
     comments: 21,
+    commentIds: [],
   },
 ];
 
