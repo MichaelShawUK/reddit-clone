@@ -2041,8 +2041,11 @@ const dummyComments = [
   },
 ];
 
-const itapComments = dummyComments
-  .slice(37)
-  .map((comment) => (comment.postId = "Ny7q49uSqeVo9j5OUOzU"));
+// Sets first 7 comments to have a certain postId
+const itapComments = dummyComments.slice(0, 7).map((comment) => {
+  let obj = comment;
+  obj.postId = "Ny7q49uSqeVo9j5OUOzU";
+  return obj;
+});
 
 console.log(itapComments);

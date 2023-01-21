@@ -9,6 +9,7 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
+    //Infinite loop due to sort method changing obj reference??
     console.log("reading posts");
     const data = readData("posts");
     data.then((res) => {
@@ -20,7 +21,7 @@ const Home = () => {
       });
       setPosts(res);
     });
-  });
+  }, []);
 
   return (
     <div id="home">
