@@ -31,7 +31,7 @@ const Home = () => {
         </div>
         <Sorter />
         {posts.map((post) => {
-          return <Card post={post} />;
+          return <Card key={post.id} post={post} />;
         })}
       </div>
     </div>

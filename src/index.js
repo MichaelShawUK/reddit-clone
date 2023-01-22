@@ -6,6 +6,9 @@ import App from "./App";
 import ErrorPage from "./Components/ErrorPage";
 import Home from "./Components/Home";
 import Thread from "./Components/Thread";
+import { updateDocById, getDocById } from "./utils/firestoreConnect";
+
+getDocById(1);
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  <RouterProvider router={router} />
-  // </React.StrictMode>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
