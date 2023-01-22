@@ -7,7 +7,7 @@ const Comment = ({ comment }) => {
     <div className="comment">
       <CommentHeader comment={comment} />
       <div className="comment-body">{comment.body}</div>
-      <CommentFooter />
+      <CommentFooter comment={comment} />
     </div>
   );
 };

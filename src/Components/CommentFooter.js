@@ -9,12 +9,10 @@ function scrollToReplyBox() {
   setTimeout(() => reply.focus(), 500);
 }
 
-const votesplaceholder = posts[0];
-
-const CommentFooter = () => {
+const CommentFooter = ({ comment }) => {
   return (
     <div className="comment-footer">
-      <Votes post={votesplaceholder} />
+      <Votes post={comment} />
       <div className="footer-comments" onClick={scrollToReplyBox}>
         <img src={commentIcon} alt=""></img>
         <div className="comment-num">Reply</div>

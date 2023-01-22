@@ -2042,10 +2042,31 @@ const dummyComments = [
 ];
 
 // Sets first 7 comments to have a certain postId
-const itapComments = dummyComments.slice(0, 7).map((comment) => {
+
+const randomVotes = () => {
+  return {
+    upvotes: Math.floor(Math.random() * 40) + 15,
+    downvotes: Math.floor(Math.random() * 15),
+  };
+};
+
+const rComments = dummyComments.slice(50, 72).map((comment, index) => {
+  console.log(`${index}: adding comments`);
   let obj = comment;
   obj.postId = "Ny7q49uSqeVo9j5OUOzU";
+  const { upvotes, downvotes } = randomVotes();
+  obj.upvotes = upvotes;
+  obj.downvotes = downvotes;
+  obj.time = Math.floor(Date.now() - Math.random() * 3960000);
   return obj;
 });
 
-console.log(itapComments);
+export default dummyComments;
+
+export { rComments };
+
+// pics 0 - 17
+// books 18-28
+// art 29-44
+// askreddit 45-49
+// itap 50-71

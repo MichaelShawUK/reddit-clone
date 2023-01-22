@@ -27,6 +27,7 @@ async function addPost(post) {
 }
 
 async function readData(collectionName) {
+  console.log("reading from firestore");
   const docs = await getDocs(collection(db, collectionName));
   const data = [];
   docs.forEach((doc) => {
@@ -35,4 +36,4 @@ async function readData(collectionName) {
   return data;
 }
 
-export { addPost, addComment, readData };
+export { db, addPost, addComment, readData };

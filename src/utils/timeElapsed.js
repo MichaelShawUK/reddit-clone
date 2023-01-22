@@ -29,4 +29,7 @@ const timeElapsed = (start) => {
   else return "1 year ago";
 };
 
+// Random time within the last 65 minutes
+timeElapsed(Date.now() - Math.random() * 3960000);
+
 export default timeElapsed;
