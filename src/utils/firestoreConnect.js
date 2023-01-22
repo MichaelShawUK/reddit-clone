@@ -10,18 +10,17 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebaseInit";
 
-async function updateDocById(docId) {
-  const docRef = doc(db, "posts", docId);
+async function updateDocById(collection, docId) {
+  const docRef = doc(db, collection, docId);
   await updateDoc(docRef, { id: docId });
 }
 
-async function getDocById(id) {
-  const commentsRef = collection(db, "comments");
-  const q = query(commentsRef, where("id", "==", id));
+async function getDocById(collectionName, id) {
+  const collectionRef = collection(db, collectionName);
+  const q = query(collectionRef, where("id", "==", id));
   const querySnapshot = await getDocs(q);
-  // console.log(querySnapshot);
   for (let document of querySnapshot.docs) {
-    console.log(document.id);
+    return document.data();
   }
 }
 

@@ -8,8 +8,6 @@ import Home from "./Components/Home";
 import Thread from "./Components/Thread";
 import { updateDocById, getDocById } from "./utils/firestoreConnect";
 
-getDocById(1);
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {
-        path: "/thread",
+        path: "/:postId",
         element: <Thread />,
       },
     ],

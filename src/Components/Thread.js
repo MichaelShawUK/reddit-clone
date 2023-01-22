@@ -6,12 +6,17 @@ import Comment from "./Comment";
 import { useEffect, useState } from "react";
 import { db, addComment, readData } from "../firebaseInit";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { useParams } from "react-router-dom";
+import { getDocById } from "../utils/firestoreConnect";
 // import { rComments } from "../data/dummyComments";
 
 // rComments.forEach((comment) => addComment(comment));
 
 const Thread = () => {
   const [comments, setComments] = useState([]);
+
+  const [postId, setPostId] = useState(useParams().postId);
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
     const container = [];
@@ -28,14 +33,24 @@ const Thread = () => {
     });
   }, []);
 
-  return (
-    <div className="thread">
-      <div className="thread-container">
-        <Card post={posts[4]} />
-        <Reply />
-        {comments && comments.map((comment) => <Comment comment={comment} />)}
+  useEffect(() => {
+    console.log(`************** ${postId}`);
+    getDocById("posts", postId).then((doc) => {
+      setPost(doc);
+      console.log(doc);
+    });
+  }, []);
+
+  if (!post) return <div>Loading</div>;
+  else
+    return (
+      <div className="thread">
+        <div className="thread-container">
+          <Card post={post} />
+          <Reply />
+          {comments && comments.map((comment) => <Comment comment={comment} />)}
+        </div>
       </div>
-    </div>
-  );
+    );
 };
 export default Thread;

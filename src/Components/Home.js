@@ -1,6 +1,7 @@
 import "../css/home.css";
 import Sorter from "./Sorter";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 // import posts from "../data/posts";
 import { useEffect, useState } from "react";
 import { addPost, readData } from "../firebaseInit";
@@ -31,7 +32,11 @@ const Home = () => {
         </div>
         <Sorter />
         {posts.map((post) => {
-          return <Card key={post.id} post={post} />;
+          return (
+            <Link to={`/${post.id}`} key={post.id}>
+              <Card key={post.id} post={post} />
+            </Link>
+          );
         })}
       </div>
     </div>
