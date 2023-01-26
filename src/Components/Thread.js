@@ -30,6 +30,7 @@ const Thread = () => {
         container.push(comment.data());
       });
       console.log(container);
+      container.sort((a, b) => a.time - b.time);
       setComments(container);
     });
   }, []);
@@ -49,7 +50,10 @@ const Thread = () => {
         <div className="thread-container">
           <Card post={post} />
           <Reply />
-          {comments && comments.map((comment) => <Comment comment={comment} />)}
+          {comments &&
+            comments.map((comment) => (
+              <Comment comment={comment} key={comment.id} />
+            ))}
         </div>
       </div>
     );

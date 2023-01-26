@@ -8,7 +8,7 @@ const CardFooter = ({ post }) => {
       <Votes post={post} />
       <div className="footer-comments">
         <img src={commentIcon} alt=""></img>
-        <div className="comment-num">{`${post.comments} Comments`}</div>
+        <div className="comment-num">{`${post.commentIds.length} Comments`}</div>
       </div>
     </div>
   );
