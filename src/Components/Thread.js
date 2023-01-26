@@ -22,7 +22,8 @@ const Thread = () => {
     const container = [];
     console.log("useEffect running");
     const commentsRef = collection(db, "comments");
-    const q = query(commentsRef, where("id", ">=", 0), where("id", "<=", 17));
+    // const q = query(commentsRef, where("id", ">=", 0), where("id", "<=", 17));
+    const q = query(commentsRef, where("postId", "==", postId));
     const result = getDocs(q);
     result.then((docs) => {
       docs.forEach((comment) => {
