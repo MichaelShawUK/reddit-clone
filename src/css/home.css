@@ -34,6 +34,27 @@
   width: 640px;
 }
 
+#new-post {
+  padding: 4px 20px;
+  margin: 0px 8px 10px;
+  font-size: 12px;
+  background-color: #0079d3;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  /* width: min-content; */
+}
+
+#new-post:hover {
+  background-color: #1484d7;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 500px) {
   #home {
     padding: 20px 0;

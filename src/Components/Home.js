@@ -27,8 +27,11 @@ const Home = () => {
   return (
     <div id="home">
       <div id="home-container">
-        <div className="med" id="home-header">
-          Popular posts
+        <div className="space-between">
+          <div className="med" id="home-header">
+            Popular posts
+          </div>
+          <button id="new-post">New Post</button>
         </div>
         <Sorter />
         {posts.map((post) => {
