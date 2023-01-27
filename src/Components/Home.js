@@ -28,7 +28,6 @@ const Home = () => {
 
   return (
     <div id="home">
-      <p>{`${loggedIn}`}</p>
       <div id="home-container">
         <div className="space-between">
           <div className="med" id="home-header">

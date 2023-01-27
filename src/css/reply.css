@@ -30,6 +30,15 @@
   background-color: #1484d7;
 }
 
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+button:disabled:hover {
+  background-color: #aaa;
+}
+
 @media (max-width: 500px) {
   .reply {
     margin: 0;

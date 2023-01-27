@@ -3,11 +3,12 @@ import Card from "./Card";
 import Reply from "./Reply";
 import posts from "../data/posts";
 import Comment from "./Comment";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { db, addComment, readData } from "../firebaseInit";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { getDocById } from "../utils/firestoreConnect";
+import { LoggedInContext } from "../App";
 // import { rComments } from "../data/dummyComments";
 
 // rComments.forEach((comment) => addComment(comment));
@@ -17,6 +18,7 @@ const Thread = () => {
 
   const [postId, setPostId] = useState(useParams().postId);
   const [post, setPost] = useState(null);
+  const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
 
   useEffect(() => {
     const container = [];
