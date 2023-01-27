@@ -19,15 +19,18 @@ async function submitComment(e, post) {
       username: getAuth().currentUser.displayName.split(" ").join(""),
     },
   };
-  const docRef = doc(collection(db, "comments"));
-  await setDoc(docRef, comment);
-  const docSnap = await getDoc(docRef);
-  await updateDoc(docRef, { id: docSnap.id });
-  const postRef = doc(db, "posts", comment.postId);
-  const postSnap = await getDoc(postRef);
-  const origCommentIds = postSnap.data().commentIds;
-  const updatedCommentIds = [...origCommentIds, docSnap.id];
-  await updateDoc(postRef, { commentIds: updatedCommentIds });
+
+  if (comment.body) {
+    const docRef = doc(collection(db, "comments"));
+    await setDoc(docRef, comment);
+    const docSnap = await getDoc(docRef);
+    await updateDoc(docRef, { id: docSnap.id });
+    const postRef = doc(db, "posts", comment.postId);
+    const postSnap = await getDoc(postRef);
+    const origCommentIds = postSnap.data().commentIds;
+    const updatedCommentIds = [...origCommentIds, docSnap.id];
+    await updateDoc(postRef, { commentIds: updatedCommentIds });
+  }
 }
 
 const Reply = ({ post }) => {
