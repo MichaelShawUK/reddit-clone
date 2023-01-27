@@ -30,13 +30,17 @@
   background-color: #1484d7;
 }
 
-button:disabled {
+.reply button:disabled {
   background-color: #aaa;
   cursor: not-allowed;
 }
 
-button:disabled:hover {
+.reply button:disabled:hover {
   background-color: #aaa;
+}
+
+.reply button:disabled:hover::before {
+  content: "Please Log In to ";
 }
 
 @media (max-width: 500px) {
