@@ -33,7 +33,7 @@ const Home = () => {
           <div className="med" id="home-header">
             Popular posts
           </div>
-          <button id="new-post">New Post</button>
+          {loggedIn && <button id="new-post">New Post</button>}
         </div>
         <Sorter />
         {posts.map((post) => {
