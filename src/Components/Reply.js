@@ -20,7 +20,7 @@ async function submitComment(e, post) {
     },
   };
 
-  if (comment.body) {
+  if (comment.body.trim()) {
     const docRef = doc(collection(db, "comments"));
     await setDoc(docRef, comment);
     const docSnap = await getDoc(docRef);
@@ -30,6 +30,7 @@ async function submitComment(e, post) {
     const origCommentIds = postSnap.data().commentIds;
     const updatedCommentIds = [...origCommentIds, docSnap.id];
     await updateDoc(postRef, { commentIds: updatedCommentIds });
+    window.location.reload();
   }
 }
 
