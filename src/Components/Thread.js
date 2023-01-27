@@ -51,7 +51,7 @@ const Thread = () => {
       <div className="thread">
         <div className="thread-container">
           <Card post={post} />
-          <Reply />
+          <Reply post={post} />
           {comments &&
             comments.map((comment) => (
               <Comment comment={comment} key={comment.id} />

@@ -8,6 +8,7 @@ import Home from "./Components/Home";
 import Thread from "./Components/Thread";
 import {
   getCollectionDocs,
+  getCommentDocs,
   getDocDbId,
   updateCommentId,
 } from "./utils/updateFirestore";
