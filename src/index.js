@@ -6,7 +6,6 @@ import App from "./App";
 import ErrorPage from "./Components/ErrorPage";
 import Home from "./Components/Home";
 import Thread from "./Components/Thread";
-import { updateDocById, getDocById } from "./utils/firestoreConnect";
 
 const router = createBrowserRouter([
   {

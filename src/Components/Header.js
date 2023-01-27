@@ -3,12 +3,14 @@ import Search from "./Search";
 import "../css/header.css";
 import { Link } from "react-router-dom";
 import signIn, { signOut } from "../utils/firebaseAuth";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getAuth } from "firebase/auth";
+import { LoggedInContext } from "../App";
 
 const Header = () => {
   const auth = getAuth();
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
+  const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
   useEffect(() => {
     auth.onAuthStateChanged(() => {
       if (auth.currentUser) setLoggedIn(true);

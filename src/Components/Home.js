@@ -3,11 +3,13 @@ import Sorter from "./Sorter";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 // import posts from "../data/posts";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { LoggedInContext } from "../App";
 import { addPost, readData } from "../firebaseInit";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
 
   useEffect(() => {
     //Infinite loop due to sort method changing obj reference??
@@ -26,6 +28,7 @@ const Home = () => {
 
   return (
     <div id="home">
+      <p>{`${loggedIn}`}</p>
       <div id="home-container">
         <div className="space-between">
           <div className="med" id="home-header">
