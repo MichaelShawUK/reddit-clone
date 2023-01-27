@@ -32,7 +32,7 @@ const Thread = () => {
         container.push(comment.data());
       });
       console.log(container);
-      container.sort((a, b) => a.time - b.time);
+      container.sort((a, b) => b.time - a.time);
       setComments(container);
     });
   }, []);

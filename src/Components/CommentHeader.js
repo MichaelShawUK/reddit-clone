@@ -21,9 +21,10 @@ const CommentHeader = ({ comment }) => {
     <div className="comment-header">
       <img className="user-icon" src={avatar} alt=""></img>
       <div className="user-name">{`u/${comment.user.username}`}</div>
-      <div className="comment-info">{`${timeElapsed(
+      {/* <div className="comment-info">{`${timeElapsed(
         Math.floor(Date.now() - Math.random() * 3960000)
-      )}`}</div>
+      )}`}</div> */}
+      <div className="comment-info">{timeElapsed(comment.time)}</div>
     </div>
   );
 };

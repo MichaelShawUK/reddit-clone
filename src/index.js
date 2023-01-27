@@ -6,6 +6,11 @@ import App from "./App";
 import ErrorPage from "./Components/ErrorPage";
 import Home from "./Components/Home";
 import Thread from "./Components/Thread";
+import {
+  getCollectionDocs,
+  getDocDbId,
+  updateCommentId,
+} from "./utils/updateFirestore";
 
 const router = createBrowserRouter([
   {

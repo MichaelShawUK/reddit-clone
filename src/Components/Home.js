@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div id="home">
       <div id="home-container">
-        <div className="space-between">
+        <div className="space-between pb10">
           <div className="med" id="home-header">
             Popular posts
           </div>
