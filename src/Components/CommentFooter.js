@@ -4,6 +4,8 @@ import commentIcon from "../assets/img/commentIcon.png";
 import posts from "../data/posts";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../firebaseInit";
+import { useContext } from "react";
+import { LoggedInContext } from "../App";
 
 function scrollToReplyBox() {
   const reply = document.querySelector(".reply textarea");
@@ -12,15 +14,19 @@ function scrollToReplyBox() {
 }
 
 const CommentFooter = ({ comment }) => {
+  const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
+
   async function voteClick(e) {
-    const commentRef = doc(db, "comments", comment.id);
-    const classList = Array.from(e.target.classList);
-    if (classList.includes("upvote")) {
-      await updateDoc(commentRef, { upvotes: comment.upvotes + 1 });
-    } else if (classList.includes("downvote")) {
-      await updateDoc(commentRef, { downvotes: comment.downvotes + 1 });
-    }
-    window.location.reload();
+    if (loggedIn) {
+      const commentRef = doc(db, "comments", comment.id);
+      const classList = Array.from(e.target.classList);
+      if (classList.includes("upvote")) {
+        await updateDoc(commentRef, { upvotes: comment.upvotes + 1 });
+      } else if (classList.includes("downvote")) {
+        await updateDoc(commentRef, { downvotes: comment.downvotes + 1 });
+      }
+      window.location.reload();
+    } else console.log("need to log in to vote");
   }
 
   return (
