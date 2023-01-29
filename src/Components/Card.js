@@ -12,6 +12,7 @@ const Card = ({ post }) => {
   const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
 
   async function voteClick(e) {
+    e.preventDefault();
     if (loggedIn) {
       const postRef = doc(db, "posts", post.id);
       const classList = Array.from(e.target.classList);
