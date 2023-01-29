@@ -40,6 +40,10 @@
   content: url("../assets/img/downvote-hover.png");
 }
 
+.vote:disabled {
+  cursor: not-allowed;
+}
+
 @media (max-width: 500px) {
   .votes {
     display: none;
