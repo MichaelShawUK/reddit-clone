@@ -6,7 +6,10 @@ import { getAuth } from "firebase/auth";
 import subreddits from "../data/subreddits";
 import rdefault from "../data/icons/subreddits/rdefault.png";
 import { collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
-import { db } from "../firebaseInit";
+import { db, storage } from "../firebaseInit";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+
+const storageRef = ref(storage);
 
 async function action({ request }) {
   const formData = await request.formData();
@@ -35,18 +38,33 @@ async function SubmitPost(postdata) {
     id: null,
     img: null,
     subreddit: subreddit,
-    text: postdata.text,
+    text: null,
     time: Date.now(),
     title: postdata.title,
     upvotes: 1,
     user: getAuth().currentUser.displayName.split(" ").join(""),
   };
 
+  if (postdata.text) post.text = postdata.text;
+
+  // console.log(postdata);
+
   console.log(post);
   const postRef = doc(collection(db, "posts"));
   await setDoc(postRef, post);
   const snapshot = await getDoc(postRef);
-  await updateDoc(postRef, { id: snapshot.id });
+  if (postdata.img) {
+    const extension = postdata.img.type.split("/")[1];
+    // console.log(postdata.img.type.split("/")[1]);
+    const filepath = `images/${snapshot.id}.${extension}`;
+    const imageRef = ref(storage, filepath);
+    console.log(imageRef);
+    await uploadBytes(imageRef, postdata.img).then((res) =>
+      console.log("uploaded")
+    );
+    await getDownloadURL(imageRef).then((url) => (post.img = url));
+  }
+  await updateDoc(postRef, { id: snapshot.id, img: post.img });
   return snapshot.id;
 }
 
@@ -78,7 +96,9 @@ const NewPost = () => {
           <span>Upload Image</span>
         </div>
         {!checked && <textarea name="text"></textarea>}
-        {checked && <input type="file" name="image"></input>}
+        {checked && (
+          <input type="file" name="img" accept="image/png, image/jpeg"></input>
+        )}
         <button type="submit" id="submit-post-btn" disabled={!loggedIn}>
           Submit
         </button>
