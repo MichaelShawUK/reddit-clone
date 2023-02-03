@@ -6,13 +6,7 @@ import App from "./App";
 import ErrorPage from "./Components/ErrorPage";
 import Home from "./Components/Home";
 import Thread from "./Components/Thread";
-import NewPost from "./Components/NewPost";
-import {
-  getCollectionDocs,
-  getCommentDocs,
-  getDocDbId,
-  updateCommentId,
-} from "./utils/updateFirestore";
+import NewPost, { action as newPostAction } from "./Components/NewPost";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/newpost",
         element: <NewPost />,
+        action: newPostAction,
       },
     ],
   },
