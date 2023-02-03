@@ -6,6 +6,7 @@ import App from "./App";
 import ErrorPage from "./Components/ErrorPage";
 import Home from "./Components/Home";
 import Thread from "./Components/Thread";
+import NewPost from "./Components/NewPost";
 import {
   getCollectionDocs,
   getCommentDocs,
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/:postId",
         element: <Thread />,
+      },
+      {
+        path: "/newpost",
+        element: <NewPost />,
       },
     ],
   },

@@ -33,7 +33,11 @@ const Home = () => {
           <div className="med" id="home-header">
             Popular posts
           </div>
-          {loggedIn && <button id="new-post">New Post</button>}
+          {loggedIn && (
+            <Link to="/newpost">
+              <button id="new-post-btn">New Post</button>
+            </Link>
+          )}
         </div>
         <Sorter />
         {posts.map((post) => {

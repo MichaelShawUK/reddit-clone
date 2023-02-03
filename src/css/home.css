@@ -38,7 +38,7 @@
   width: 640px;
 }
 
-#new-post {
+#new-post-btn {
   padding: 4px 20px;
   margin: 0px 8px;
   font-size: 12px;
@@ -50,7 +50,7 @@
   /* width: min-content; */
 }
 
-#new-post:hover {
+#new-post-btn:hover {
   background-color: #1484d7;
 }
 
