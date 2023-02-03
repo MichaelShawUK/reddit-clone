@@ -1,5 +1,5 @@
 import "../css/new-post.css";
-import { Form } from "react-router-dom";
+import { Form, redirect } from "react-router-dom";
 import { useContext, useState } from "react";
 import { LoggedInContext } from "../App";
 import { getAuth } from "firebase/auth";
@@ -12,8 +12,9 @@ async function action({ request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   console.log(data);
-  SubmitPost(data);
-  return null;
+  const id = await SubmitPost(data);
+  console.log(id);
+  return redirect(`/${id}`);
 }
 
 async function SubmitPost(postdata) {
@@ -46,6 +47,7 @@ async function SubmitPost(postdata) {
   await setDoc(postRef, post);
   const snapshot = await getDoc(postRef);
   await updateDoc(postRef, { id: snapshot.id });
+  return snapshot.id;
 }
 
 const NewPost = () => {
