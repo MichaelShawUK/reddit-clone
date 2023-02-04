@@ -9,14 +9,10 @@ import { collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db, storage } from "../firebaseInit";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-const storageRef = ref(storage);
-
 async function action({ request }) {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
-  console.log(data);
   const id = await SubmitPost(data);
-  console.log(id);
   return redirect(`/${id}`);
 }
 
@@ -29,8 +25,6 @@ async function SubmitPost(postdata) {
 
   if (subreddits[subredditName]) subreddit = subreddits[subredditName];
   else subreddit = { icon: rdefault, name: subredditName };
-
-  console.log(subreddits[subreddit]);
 
   const post = {
     commentIds: [],
@@ -47,21 +41,14 @@ async function SubmitPost(postdata) {
 
   if (postdata.text) post.text = postdata.text;
 
-  // console.log(postdata);
-
-  console.log(post);
   const postRef = doc(collection(db, "posts"));
   await setDoc(postRef, post);
   const snapshot = await getDoc(postRef);
   if (postdata.img) {
     const extension = postdata.img.type.split("/")[1];
-    // console.log(postdata.img.type.split("/")[1]);
     const filepath = `images/${snapshot.id}.${extension}`;
     const imageRef = ref(storage, filepath);
-    console.log(imageRef);
-    await uploadBytes(imageRef, postdata.img).then((res) =>
-      console.log("uploaded")
-    );
+    await uploadBytes(imageRef, postdata.img);
     await getDownloadURL(imageRef).then((url) => (post.img = url));
   }
   await updateDoc(postRef, { id: snapshot.id, img: post.img });
@@ -71,6 +58,7 @@ async function SubmitPost(postdata) {
 const NewPost = () => {
   const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
   const [checked, setChecked] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   function handleContentType(e) {
     setChecked(e.target.checked);
@@ -99,9 +87,15 @@ const NewPost = () => {
         {checked && (
           <input type="file" name="img" accept="image/png, image/jpeg"></input>
         )}
-        <button type="submit" id="submit-post-btn" disabled={!loggedIn}>
+        <button
+          type="submit"
+          id="submit-post-btn"
+          disabled={!loggedIn}
+          onClick={() => setUploading(true)}
+        >
           Submit
         </button>
+        {uploading && <div>Uploading...</div>}
       </Form>
     </div>
   );
