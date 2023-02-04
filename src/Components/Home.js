@@ -11,6 +11,29 @@ const Home = () => {
   const [posts, setPosts] = useState([]);
   const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
 
+  function sortByNew() {
+    console.log("sorting by new");
+    const newPosts = posts.slice();
+    newPosts.sort((a, b) => b.time - a.time);
+    setPosts(newPosts);
+  }
+
+  function sortByTop() {
+    const topPosts = posts.slice();
+    topPosts.sort((a, b) => {
+      const aVotes = a.upvotes - a.downvotes;
+      const bVotes = b.upvotes - b.downvotes;
+      return bVotes - aVotes;
+    });
+    setPosts(topPosts);
+  }
+
+  function sortByHot() {
+    const hotPosts = posts.slice();
+    hotPosts.sort((a, b) => 0.5 - Math.random());
+    setPosts(hotPosts);
+  }
+
   useEffect(() => {
     //Infinite loop due to sort method changing obj reference??
     console.log("reading posts");
@@ -39,7 +62,11 @@ const Home = () => {
             </Link>
           )}
         </div>
-        <Sorter />
+        <Sorter
+          sortByNew={sortByNew}
+          sortByTop={sortByTop}
+          sortByHot={sortByHot}
+        />
         {posts.map((post) => {
           return (
             <Link to={`/${post.id}`} key={post.id}>

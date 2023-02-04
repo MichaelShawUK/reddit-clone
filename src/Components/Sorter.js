@@ -1,11 +1,17 @@
 import "../css/sorter.css";
 
-const Sorter = () => {
+const Sorter = ({ sortByHot, sortByNew, sortByTop }) => {
   return (
     <div id="sorter">
-      <button id="hot">Hot</button>
-      <button id="new">New</button>
-      <button id="top">Top</button>
+      <button id="hot" onClick={sortByHot}>
+        Hot
+      </button>
+      <button id="new" onClick={sortByNew}>
+        New
+      </button>
+      <button id="top" onClick={sortByTop}>
+        Top
+      </button>
     </div>
   );
 };
