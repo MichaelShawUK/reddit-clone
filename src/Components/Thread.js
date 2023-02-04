@@ -9,9 +9,6 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { getDocById } from "../utils/firestoreConnect";
 import { LoggedInContext } from "../App";
-// import { rComments } from "../data/dummyComments";
-
-// rComments.forEach((comment) => addComment(comment));
 
 const Thread = () => {
   const [comments, setComments] = useState([]);
@@ -22,26 +19,21 @@ const Thread = () => {
 
   useEffect(() => {
     const container = [];
-    console.log("useEffect running");
     const commentsRef = collection(db, "comments");
-    // const q = query(commentsRef, where("id", ">=", 0), where("id", "<=", 17));
     const q = query(commentsRef, where("postId", "==", postId));
     const result = getDocs(q);
     result.then((docs) => {
       docs.forEach((comment) => {
         container.push(comment.data());
       });
-      console.log(container);
       container.sort((a, b) => b.time - a.time);
       setComments(container);
     });
   }, []);
 
   useEffect(() => {
-    console.log(`************** ${postId}`);
     getDocById("posts", postId).then((doc) => {
       setPost(doc);
-      console.log(doc);
     });
   }, []);
 

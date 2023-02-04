@@ -6,7 +6,7 @@ const CardHeader = ({ post }) => {
     <div className="card-header">
       <img className="subreddit-icon" src={post.subreddit.icon} alt=""></img>
       <div className="subreddit-name">{`r/${post.subreddit.name}`}</div>
-      <div className="post-info">{`Posted by ${post.user} ${timeElapsed(
+      <div className="post-info">{`Posted by u/${post.user} ${timeElapsed(
         post.time
       )}`}</div>
     </div>

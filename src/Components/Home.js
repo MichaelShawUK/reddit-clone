@@ -2,7 +2,6 @@ import "../css/home.css";
 import Sorter from "./Sorter";
 import Card from "./Card";
 import { Link } from "react-router-dom";
-// import posts from "../data/posts";
 import { useEffect, useState, useContext } from "react";
 import { LoggedInContext } from "../App";
 import { addPost, readData } from "../firebaseInit";
@@ -12,7 +11,6 @@ const Home = () => {
   const { loggedIn, setLoggedIn } = useContext(LoggedInContext);
 
   function sortByNew() {
-    console.log("sorting by new");
     const newPosts = posts.slice();
     newPosts.sort((a, b) => b.time - a.time);
     setPosts(newPosts);
@@ -35,8 +33,6 @@ const Home = () => {
   }
 
   useEffect(() => {
-    //Infinite loop due to sort method changing obj reference??
-    console.log("reading posts");
     const data = readData("posts");
     data.then((res) => {
       // Sorts posts by highest vote count
